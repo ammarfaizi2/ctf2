@@ -6,11 +6,23 @@ global tea_t000
 tea_t000:
 	push rbp
 	mov rbp, rsp
-	sub rsp, 1024 + 4
+	sub rsp, 1024 + 4 + (8 * 3)
 
 	lea rdi, [rbp - 1024]
 	call tea_t001
 	mov [rbp - 1024 - 4], eax
+
+	mov rax, "Integral"
+	ror rax, 6
+	mov [rbp - 1028 - (8 * 3)], rax
+
+	mov rax, "AndDeriv"
+	ror rax, 14
+	mov [rbp - 1028 - (8 * 2)], rax
+
+	mov rax, "ative"
+	ror rax, 26
+	mov [rbp - 1028 - (8 * 1)], rax
 
 	mov rsp, rbp
 	pop rbp
