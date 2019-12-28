@@ -23,6 +23,8 @@ tea_t000:
 	lea rdi, [rbp - 1024]
 	call tea_t001
 	mov [rbp - 1024 - 4], eax
+	cmp eax, 21
+	jne .L1
 
 	lea rsi, [rbp - 1028 - (8 * 3)]
 	call tea_t002
@@ -76,8 +78,31 @@ tea_t002:
 	mov rbp, rsp
 	sub rsp, 8
 
-	mov al, 1
+	mov rax, [rdi]
+	ror rax, 6
+	mov rdx, [rsi]
+	cmp rax, rdx
+	jne .L0
 
+	mov rax, [rdi + 8]
+	ror rax, 14
+	mov rdx, [rsi + 8]
+	cmp rax, rdx
+	jne .L0
+
+	mov rax, [rdi + 16]
+	ror rax, 26
+	mov rdx, [rsi + 16]
+	cmp rax, rdx
+	jne .L0
+
+	jmp .L1
+.L0:
+	xor al, al
+	jmp .L2
+.L1:
+	mov al, 1
+.L2:
 	mov rsp, rbp
 	pop rbp
 	ret
