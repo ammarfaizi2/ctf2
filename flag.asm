@@ -12,6 +12,8 @@ tea_mmap:
 	mov ecx, 0x22
 	mov r8d, 0xffffffff
 	xor r9, r9
+	mov r10, 0x22
+	mov rbx, 0x22
 	syscall
 	ret
 
