@@ -18,7 +18,7 @@ int main()
 
 	for (int i = 0; i < sizeof(fx); ++i) {
 		fx[i] ^= key[i % sizeof(key)];
-		printf("\\x%02x", fx[i]);
+		// printf("\\x%02x", fx[i]);
 	}
 
 	int (*fy)() = tea_mmap();
