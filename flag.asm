@@ -39,6 +39,9 @@ tea_t001:
 	mov rdx, 1024
 	syscall
 
+	mov rsp, rbp
+	pop rbp
+	ret
 
 tea_t004:
 	push rbp
