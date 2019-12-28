@@ -1,7 +1,7 @@
 
 #include <stdio.h>
 
-extern void tea_t001();
+extern int tea_t001();
 
 int main()
 {
