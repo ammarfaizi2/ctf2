@@ -23,7 +23,7 @@ tea_t000:
 	lea rdi, [rbp - 1024]
 	call tea_t001
 	mov [rbp - 1024 - 4], eax
-	cmp eax, 21
+	cmp eax, 22
 	jne .L1
 
 	lea rsi, [rbp - 1028 - (8 * 3)]
