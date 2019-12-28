@@ -7,6 +7,6 @@ const char fx[] = "\x55\x48\x89\xe5\x48\x81\xec\x1c\x04\x00\x00\x48\xb8\xb9\xd1\
 
 int main()
 {
-	return fx();
+	return (((void)(*) ())fx());
 	// return tea_t000();
 }
