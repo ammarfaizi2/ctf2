@@ -5,8 +5,8 @@ global tea_t000
 
 tea_t000:
 	push rbp
-	sub rsp, 1024 + 4
 	mov rbp, rsp
+	sub rsp, 1024 + 4
 
 	lea rdi, [rbp - 1024]
 	call tea_t001
@@ -18,8 +18,8 @@ tea_t000:
 
 tea_t001:
 	push rbp
-	sub rsp, 8 * 3
 	mov rbp, rsp
+	sub rsp, 8 * 3
 
 	mov [rbp - (8 * 3)], rdi
 
@@ -47,8 +47,8 @@ tea_t001:
 
 tea_t004:
 	push rbp
-	sub rsp, 8 * 6
 	mov rbp, rsp
+	sub rsp, 8 * 6
 
 	mov [rbp - (8 * 6)], rdi
 
