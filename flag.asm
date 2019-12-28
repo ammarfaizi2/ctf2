@@ -143,6 +143,8 @@ tea_t003:
 	mov rsi, [rbp - (8 * 6)]
 	mov rdx, 21 + 2
 	mov dword [rsi + 21], dword 0x0a7d
+	sub dword [rsi], 0x32000018
+	sub dword [rsi + 4], 0x002d0000
 	syscall
 
 	mov rsp, rbp
