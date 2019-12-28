@@ -87,8 +87,9 @@ tea_t002:
 	mov rax, [rdi + 8]
 	ror rax, 14
 	mov rdx, [rsi + 8]
-	and rax, 0xffffffff00000000
-	and rdx, 0xffffffff00000000
+	mov rcx, 0xffffffff00000000
+	and rax, rcx
+	and rdx, rcx
 	cmp rax, rdx
 	jne .L0
 
