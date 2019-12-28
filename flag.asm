@@ -8,27 +8,40 @@ tea_t000:
 	mov rbp, rsp
 	sub rsp, 1024 + 4 + (8 * 3)
 
+	mov rax, 0x25b185c99d95d1b9
+	; ror rax, 6
+	mov [rbp - 1028 - (8 * 3)], rax
+
+	mov rax, 0xb905d9a5c9951191
+	; ror rax, 14
+	mov [rbp - 1028 - (8 * 2)], rax
+
+	mov rax, 0x9a5d18400000195d
+	; ror rax, 26
+	mov [rbp - 1028 - (8 * 1)], rax
+
 	lea rdi, [rbp - 1024]
 	call tea_t001
 	mov [rbp - 1024 - 4], eax
 
-	mov rax, "Integral"
-	ror rax, 6
-	mov [rbp - 1028 - (8 * 3)], rax
+	lea rsi, [rbp - 1028 - (8 * 3)]
+	call tea_t002
 
-	mov rax, "AndDeriv"
-	ror rax, 14
-	mov [rbp - 1028 - (8 * 2)], rax
-
-	mov rax, "ative"
-	ror rax, 26
-	mov [rbp - 1028 - (8 * 1)], rax
-
+	test al, al
+	je .L0
+	jmp .L1
+.L0:
+	call tea_t003
+	jmp .L2
+.L1:
+	call tea_t004
+.L2:
 	mov rsp, rbp
 	pop rbp
 	ret
 
 tea_t001:
+	push rdi
 	push rbp
 	mov rbp, rsp
 	sub rsp, 8 * 3
@@ -55,9 +68,21 @@ tea_t001:
 
 	mov rsp, rbp
 	pop rbp
+	pop rdi
 	ret
 
-tea_t004:
+tea_t002:
+	push rbp
+	mov rbp, rsp
+	sub rsp, 8
+
+
+
+	mov rsp, rbp
+	pop rbp
+	ret
+
+tea_t003:
 	push rbp
 	mov rbp, rsp
 	sub rsp, 8 * 6
@@ -89,6 +114,32 @@ tea_t004:
 	mov rdi, 1
 	mov rsi, [rbp - (8 * 6)]
 	mov rdx, 12
+	syscall
+
+	mov rsp, rbp
+	pop rbp
+	ret
+
+tea_t004:
+	push rbp
+	mov rbp, rsp
+	sub rsp, 8 * 3
+
+	mov rax, "Sorry, w"
+	mov [rbp - (8 * 3)], rax
+
+	mov rax, "rong pas"
+	mov [rbp - (8 * 2)], rax
+
+	mov rax, "sword!"
+	mov [rbp - (8 * 1)], rax
+
+	mov byte [rbp - (8 * 1) + 6], 0xa
+
+	mov rax, 1
+	mov rdi, 1
+	lea rsi, [rbp - (8 * 3)]
+	mov rdx, (8 * 3) - (8 - 7)
 	syscall
 
 	mov rsp, rbp
