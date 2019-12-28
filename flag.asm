@@ -76,7 +76,7 @@ tea_t002:
 	mov rbp, rsp
 	sub rsp, 8
 
-
+	mov al, 1
 
 	mov rsp, rbp
 	pop rbp
