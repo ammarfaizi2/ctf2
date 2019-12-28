@@ -1,5 +1,6 @@
 
 #include <stdio.h>
+#include <sys/mman.h>
 
 // extern int tea_t000();
 
@@ -7,6 +8,14 @@ static const char fx[] = "\x55\x48\x89\xe5\x48\x81\xec\x1c\x04\x00\x00\x48\xb8\x
 
 int main()
 {
-	return ((int (*)())fx)();
+	int (*fy)() = mmap(NULL, sizeof(fx), PROT_EXEC | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+
+	for (int i = 0; i < sizeof(fx); ++i) {
+		((char *)fy)[i] = fx[i];
+	}
+
+	return fy();
+
+
 	// return tea_t000();
 }
