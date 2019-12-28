@@ -28,7 +28,7 @@ tea_t000:
 	call tea_t002
 
 	test al, al
-	je .L0
+	jne .L0
 	jmp .L1
 .L0:
 	call tea_t003
