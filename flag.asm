@@ -1,6 +1,8 @@
 
 section .text
 
+global tea_t000
+
 tea_t000:
 	push rbp
 	sub rsp, 1024 + 4

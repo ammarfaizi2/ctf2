@@ -1,9 +1,9 @@
 
 #include <stdio.h>
 
-extern int tea_t001();
+extern int tea_t000();
 
 int main()
 {
-	return tea_t001();
+	return tea_t000();
 }
