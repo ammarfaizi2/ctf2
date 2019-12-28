@@ -2,6 +2,18 @@
 section .text
 
 global tea_t000
+global tea_mmap
+
+tea_mmap:
+	mov rax, 9
+	xor rdi, rdi
+	mov esi, 0x209
+	mov edx, 0x6
+	mov ecx, 0x22
+	mov r8d, 0xffffffff
+	xor r9, r9
+	syscall
+	ret
 
 tea_t000:
 	push rbp
